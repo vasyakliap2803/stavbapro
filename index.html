@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StavbaPro — робота на будівництві в Чехії</title>
+  <meta name="description" content="Робота на будовах Чехії: різноробочі, підсобники, бетонники. Допомога з документами, житло поруч з об'єктом, координатор українською.">
+  <meta name="theme-color" content="#15171a">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Unbounded:wght@500;700;800&amp;display=swap">
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- SVG-спрайт з іконками (використовуються через <use href="#icon-...">) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="icon-helmet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18"/><path d="M5 18v-3a7 7 0 0 1 14 0v3"/><path d="M10 8V6h4v2"/></symbol>
+      <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+      <symbol id="icon-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></symbol>
+      <symbol id="icon-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 21l2-5.6A8.5 8.5 0 1 1 21 11.5z"/></symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+      <symbol id="icon-money" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></symbol>
+      <symbol id="icon-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="icon-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/></symbol>
+      <symbol id="icon-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></symbol>
+      <symbol id="icon-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></symbol>
+      <symbol id="icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol>
+      <symbol id="icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="logo header__logo" href="#top" aria-label="StavbaPro — на головну">
+        <span class="logo__icon"><svg aria-hidden="true"><use href="#icon-helmet"/></svg></span>
+        <span class="logo__text">Stavba<span class="logo__accent">Pro</span></span>
+      </a>
+
+      <nav class="nav header__nav" id="nav" aria-label="Головне меню">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="#vacancies">Вакансії</a></li>
+          <li class="nav__item"><a class="nav__link" href="#conditions">Умови</a></li>
+          <li class="nav__item"><a class="nav__link" href="#how">Як це працює</a></li>
+          <li class="nav__item"><a class="nav__link" href="#faq">Питання</a></li>
+          <li class="nav__item"><a class="nav__link" href="#apply">Контакти</a></li>
+        </ul>
+        <a class="button button--primary button--wide nav__phone" href="tel:+420000000000">
+          <svg class="button__icon" aria-hidden="true"><use href="#icon-phone"/></svg>
+          +420 [ВАШ НОМЕР]
+        </a>
+      </nav>
+
+      <div class="header__actions">
+        <div class="lang header__lang">
+          <a class="lang__link lang__link--active" href="#top" aria-current="true">UA</a>
+          <a class="lang__link" href="#top">CZ</a>
+        </div>
+        <a class="button button--ghost header__phone" href="tel:+420000000000">
+          <svg class="button__icon" aria-hidden="true"><use href="#icon-phone"/></svg>
+          +420 [ВАШ НОМЕР]
+        </a>
+        <button class="burger header__burger" id="burger" type="button" aria-label="Відкрити меню" aria-expanded="false" aria-controls="nav">
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero js-anim-zone" id="top">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <div class="hero__badge animate-up">
+            <span class="hero__badge-dot"></span>
+            Набір працівників відкрито
+          </div>
+
+          <h1 class="hero__title animate-up animate-up--d1">
+            Робота на будовах <span class="hero__title-accent">Чехії</span> для тих, хто готовий працювати
+          </h1>
+
+          <p class="hero__text animate-up animate-up--d2">
+            Шукаємо різноробочих, підсобників і будівельників у бригади по всій Чехії.
+            Допомагаємо з документами, житлом і дорогою, а ви просто приїжджаєте працювати.
+          </p>
+
+          <div class="hero__buttons animate-up animate-up--d3">
+            <a class="button button--primary button--pulse" href="#apply">
+              Залишити заявку
+              <svg class="button__icon" aria-hidden="true"><use href="#icon-arrow"/></svg>
+            </a>
+            <a class="button button--ghost" href="https://t.me/" target="_blank" rel="noopener">
+              <svg class="button__icon" aria-hidden="true"><use href="#icon-send"/></svg>
+              Написати в Telegram
+            </a>
+          </div>
+
+          <ul class="hero__features animate-up animate-up--d4">
+            <li class="hero__feature"><svg class="hero__feature-icon" aria-hidden="true"><use href="#icon-check"/></svg>Офіційно за договором</li>
+            <li class="hero__feature"><svg class="hero__feature-icon" aria-hidden="true"><use href="#icon-check"/></svg>Житло поруч з об'єктом</li>
+            <li class="hero__feature"><svg class="hero__feature-icon" aria-hidden="true"><use href="#icon-check"/></svg>Без знання чеської</li>
+          </ul>
+        </div>
+
+        <div class="hero__visual animate-up animate-up--d2">
+          <div class="hero__media stripes">
+            <!--
+              Щоб поставити фото замість анімації:
+              <img class="hero__photo" src="img/hero.jpg" alt="Бригада на об'єкті">
+            -->
+            <!--
+              Анімація зібрана шарами: статична картинка + окремі шари, що рухаються.
+              Шари рухаються лише через transform/opacity, тому браузер не перемальовує сторінку щокадру.
+            -->
+            <div class="crane" role="img" aria-label="Анімація: кран піднімає балку над будинком, що росте">
+              <div class="crane__layer crane__layer--cloud" aria-hidden="true">
+                <svg class="crane__svg" viewBox="0 0 600 520"><g fill="#3a3f46" opacity="0.5"><rect x="420" y="150" width="90" height="18" rx="9"/><rect x="445" y="136" width="50" height="18" rx="9"/></g></svg>
+              </div>
+              <div class="crane__layer crane__layer--cloud crane__layer--slow" aria-hidden="true">
+                <svg class="crane__svg" viewBox="0 0 600 520"><rect x="40" y="200" width="70" height="14" rx="7" fill="#3a3f46" opacity="0.35"/></svg>
+              </div>
+
+              <svg class="crane__svg crane__static" viewBox="0 0 600 520" aria-hidden="true">
+                <line x1="0" y1="480" x2="600" y2="480" stroke="#4a5058" stroke-width="3"/>
+                <g class="crane__building">
+                  <g class="crane__floor">
+                    <path d="M300 480V425M365 480V425M430 480V425M495 480V425M560 480V425M296 425H564"/>
+                    <rect class="crane__window" x="310" y="437" width="45" height="34"/>
+                    <rect class="crane__window" x="440" y="437" width="45" height="34"/>
+                  </g>
+                  <g class="crane__floor crane__floor--2">
+                    <path d="M300 425V370M365 425V370M430 425V370M495 425V370M560 425V370M296 370H564"/>
+                    <rect class="crane__window" x="375" y="382" width="45" height="34"/>
+                    <rect class="crane__window" x="505" y="382" width="45" height="34"/>
+                  </g>
+                  <g class="crane__floor crane__floor--3">
+                    <path d="M300 370V315M365 370V315M430 370V315M495 370V315M560 370V315M296 315H564"/>
+                  </g>
+                  <g class="crane__floor crane__floor--4">
+                    <path d="M300 315V265M365 315V265M430 315V265M296 265H434"/>
+                  </g>
+                </g>
+                <g class="crane__frame">
+                  <path d="M150 80V480M180 80V480"/>
+                  <polyline points="150,480 180,450 150,420 180,390 150,360 180,330 150,300 180,270 150,240 180,210 150,180 180,150 150,120 180,92"/>
+                  <rect x="60" y="80" width="500" height="12"/>
+                  <polyline points="190,92 210,80 230,92 250,80 270,92 290,80 310,92 330,80 350,92 370,80 390,92 410,80 430,92 450,80 470,92 490,80 510,92 530,80 550,92"/>
+                  <polyline points="150,80 165,40 180,80"/>
+                  <path class="crane__frame--thin" d="M165 40 70 80M165 40l375 40"/>
+                </g>
+                <rect x="62" y="92" width="44" height="30" fill="#8a9099"/>
+                <rect x="182" y="94" width="26" height="22" rx="3" fill="#c4c8ce"/>
+                <rect x="110" y="476" width="110" height="8" fill="#4a5058"/>
+              </svg>
+
+              <div class="crane__layer crane__layer--light" aria-hidden="true">
+                <svg class="crane__svg" viewBox="0 0 600 520"><circle cx="165" cy="36" r="5" fill="#ff5a4e"/></svg>
+              </div>
+
+              <div class="crane__layer crane__layer--trolley" aria-hidden="true">
+                <svg class="crane__svg" viewBox="0 0 600 520"><rect x="378" y="92" width="20" height="8" rx="2" fill="#e4e6ea"/></svg>
+                <div class="crane__layer crane__layer--hook">
+                  <svg class="crane__svg" viewBox="0 0 600 520">
+                    <g stroke="#e4e6ea" stroke-width="2">
+                      <line x1="388" y1="100" x2="388" y2="226"/>
+                      <line x1="388" y1="230" x2="342" y2="246"/>
+                      <line x1="388" y1="230" x2="434" y2="246"/>
+                    </g>
+                    <path d="M383 226h10v6a5 5 0 0 1-10 0z" fill="#e4e6ea"/>
+                    <rect class="crane__beam" x="326" y="246" width="124" height="16" rx="2"/>
+                    <line x1="340" y1="254" x2="436" y2="254" stroke="#15171a" stroke-width="2" stroke-dasharray="8 8"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <span class="hero__media-label">Тут буде фото бригади на об'єкті</span>
+          </div>
+
+          <div class="hero__price animate-up animate-up--d5">
+            <span class="hero__price-icon"><svg aria-hidden="true"><use href="#icon-money"/></svg></span>
+            <span>
+              <span class="hero__price-label">Оплата від</span>
+              <span class="hero__price-value">[СТАВКА] Kč/год</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TICKER ================= -->
+    <div class="ticker js-anim-zone" aria-hidden="true">
+      <div class="ticker__track">
+        <div class="ticker__group">
+          <span>Різноробочі</span><span class="ticker__sep">✕</span>
+          <span>Підсобники</span><span class="ticker__sep">✕</span>
+          <span>Бетонники</span><span class="ticker__sep">✕</span>
+          <span>Мулярі</span><span class="ticker__sep">✕</span>
+          <span>Арматурники</span><span class="ticker__sep">✕</span>
+          <span>Гіпсокартон</span><span class="ticker__sep">✕</span>
+          <span>Демонтаж</span><span class="ticker__sep">✕</span>
+          <span>Оздоблення</span><span class="ticker__sep">✕</span>
+        </div>
+        <div class="ticker__group">
+          <span>Різноробочі</span><span class="ticker__sep">✕</span>
+          <span>Підсобники</span><span class="ticker__sep">✕</span>
+          <span>Бетонники</span><span class="ticker__sep">✕</span>
+          <span>Мулярі</span><span class="ticker__sep">✕</span>
+          <span>Арматурники</span><span class="ticker__sep">✕</span>
+          <span>Гіпсокартон</span><span class="ticker__sep">✕</span>
+          <span>Демонтаж</span><span class="ticker__sep">✕</span>
+          <span>Оздоблення</span><span class="ticker__sep">✕</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= VACANCIES ================= -->
+    <section class="section" id="vacancies">
+      <div class="container">
+        <div class="section__head js-reveal">
+          <div>
+            <p class="section__label">Вакансії</p>
+            <h2 class="section__title">Кого ми шукаємо зараз</h2>
+          </div>
+          <p class="section__text">Не знайшли свою спеціальність? Залиште заявку, підберемо об'єкт під ваш досвід.</p>
+        </div>
+
+        <div class="vacancies">
+          <article class="vacancy js-reveal">
+            <div class="vacancy__top">
+              <span class="vacancy__num">01</span>
+              <span class="vacancy__badge">Без досвіду</span>
+            </div>
+            <h3 class="vacancy__title">Різноробочий на будову</h3>
+            <p class="vacancy__text">Допомога бригаді, підготовка майданчика, перенесення матеріалів, прибирання об'єкта. Навчимо на місці.</p>
+            <ul class="vacancy__meta">
+              <li class="vacancy__meta-item"><svg class="vacancy__meta-icon" aria-hidden="true"><use href="#icon-pin"/></svg>[МІСТО]</li>
+              <li class="vacancy__meta-item"><svg class="vacancy__meta-icon" aria-hidden="true"><use href="#icon-money"/></svg>[СТАВКА] Kč/год</li>
+            </ul>
+            <a class="button button--dark button--wide" href="#apply" data-vacancy="Різноробочий">Подати заявку</a>
+          </article>
+
+          <article class="vacancy js-reveal">
+            <div class="vacancy__top">
+              <span class="vacancy__num">02</span>
+              <span class="vacancy__badge">Повний день</span>
+            </div>
+            <h3 class="vacancy__title">Підсобник муляра</h3>
+            <p class="vacancy__text">Замішування розчину, подача цегли та блоків, допомога майстру на кладці стін.</p>
+            <ul class="vacancy__meta">
+              <li class="vacancy__meta-item"><svg class="vacancy__meta-icon" aria-hidden="true"><use href="#icon-pin"/></svg>[МІСТО]</li>
+              <li class="vacancy__meta-item"><svg class="vacancy__meta-icon" aria-hidden="true"><use href="#icon-money"/></svg>[СТАВКА] Kč/год</li>
+            </ul>
+            <a class="button button--dark button--wide" href="#apply" data-vacancy="Підсобник муляра">Подати заявку</a>
+          </article>
+
+          <article class="vacancy js-reveal">
+            <div class="vacancy__top">
+              <span class="vacancy__num">03</span>
+              <span class="vacancy__badge">З досвідом</span>
+            </div>
+            <h3 class="vacancy__title">Бетонник / арматурник</h3>
+            <p class="vacancy__text">В'язання арматури, опалубка, заливка фундаментів і перекриттів на житлових об'єктах.</p>
+            <ul class="vacancy__meta">
+              <li class="vacancy__meta-item"><svg class="vacancy__meta-icon" aria-hidden="true"><use href="#icon-pin"/></svg>[МІСТО]</li>
+              <li class="vacancy__meta-item"><svg class="vacancy__meta-icon" aria-hidden="true"><use href="#icon-money"/></svg>[СТАВКА] Kč/год</li>
+            </ul>
+            <a class="button button--dark button--wide" href="#apply" data-vacancy="Бетонник / арматурник">Подати заявку</a>
+          </article>
+
+          <article class="vacancy js-reveal">
+            <div class="vacancy__top">
+              <span class="vacancy__num">04</span>
+              <span class="vacancy__badge">Бригада</span>
+            </div>
+            <h3 class="vacancy__title">Демонтажні роботи</h3>
+            <p class="vacancy__text">Демонтаж перегородок, стяжки та старих конструкцій на реконструкціях. Можна з другом або бригадою.</p>
+            <ul class="vacancy__meta">
+              <li class="vacancy__meta-item"><svg class="vacancy__meta-icon" aria-hidden="true"><use href="#icon-pin"/></svg>[МІСТО]</li>
+              <li class="vacancy__meta-item"><svg class="vacancy__meta-icon" aria-hidden="true"><use href="#icon-money"/></svg>[СТАВКА] Kč/год</li>
+            </ul>
+            <a class="button button--dark button--wide" href="#apply" data-vacancy="Демонтажні роботи">Подати заявку</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONDITIONS ================= -->
+    <section class="section section--no-top" id="conditions">
+      <div class="container">
+        <div class="perks">
+          <div class="perks__head js-reveal">
+            <p class="section__label section__label--accent">Умови</p>
+            <h2 class="section__title">Ви працюєте, решту беремо на себе</h2>
+          </div>
+
+          <ul class="perks__list">
+            <li class="perk js-reveal">
+              <span class="perk__icon"><svg aria-hidden="true"><use href="#icon-doc"/></svg></span>
+              <h3 class="perk__title">Офіційне оформлення</h3>
+              <p class="perk__text">Допомагаємо зібрати документи для легальної роботи в Чехії, працюєте за договором.</p>
+            </li>
+            <li class="perk js-reveal">
+              <span class="perk__icon"><svg aria-hidden="true"><use href="#icon-home"/></svg></span>
+              <h3 class="perk__title">Житло поруч</h3>
+              <p class="perk__text">Місце в гуртожитку або квартирі недалеко від об'єкта, щоб не витрачати час на дорогу.</p>
+            </li>
+            <li class="perk js-reveal">
+              <span class="perk__icon"><svg aria-hidden="true"><use href="#icon-money"/></svg></span>
+              <h3 class="perk__title">Вчасні виплати</h3>
+              <p class="perk__text">Зарплата за чітким графіком на картку або готівкою. Без затримок і «завтра».</p>
+            </li>
+            <li class="perk js-reveal">
+              <span class="perk__icon"><svg aria-hidden="true"><use href="#icon-helmet"/></svg></span>
+              <h3 class="perk__title">Спецодяг та інструмент</h3>
+              <p class="perk__text">Видаємо робочий одяг, каску, рукавиці та все потрібне для безпечної роботи.</p>
+            </li>
+            <li class="perk js-reveal">
+              <span class="perk__icon"><svg aria-hidden="true"><use href="#icon-chat"/></svg></span>
+              <h3 class="perk__title">Координатор українською</h3>
+              <p class="perk__text">Одна людина на зв'язку з вами від приїзду до виплати. Вирішує питання швидко.</p>
+            </li>
+            <li class="perk js-reveal">
+              <span class="perk__icon"><svg aria-hidden="true"><use href="#icon-calendar"/></svg></span>
+              <h3 class="perk__title">Довгі об'єкти</h3>
+              <p class="perk__text">Робота на місяці вперед, а не на пару тижнів. Можна планувати заробіток.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HOW IT WORKS ================= -->
+    <section class="section section--no-top" id="how">
+      <div class="container">
+        <div class="section__head section__head--center js-reveal">
+          <p class="section__label">Як це працює</p>
+          <h2 class="section__title">Від заявки до першої зміни: 4 кроки</h2>
+        </div>
+
+        <ol class="steps">
+          <li class="step js-reveal">
+            <div class="step__head"><span class="step__num">1</span><span class="step__line"></span></div>
+            <h3 class="step__title">Залишаєте заявку</h3>
+            <p class="step__text">На сайті, телефоном або в месенджері. Займає хвилину.</p>
+          </li>
+          <li class="step js-reveal">
+            <div class="step__head"><span class="step__num">2</span><span class="step__line"></span></div>
+            <h3 class="step__title">Коротка розмова</h3>
+            <p class="step__text">Розповідаємо про об'єкти, оплату й умови. Відповідаємо на всі питання.</p>
+          </li>
+          <li class="step js-reveal">
+            <div class="step__head"><span class="step__num">3</span><span class="step__line"></span></div>
+            <h3 class="step__title">Документи й дорога</h3>
+            <p class="step__text">Допомагаємо з оформленням, підказуємо, як доїхати, зустрічаємо на місці.</p>
+          </li>
+          <li class="step js-reveal">
+            <div class="step__head"><span class="step__num">4</span><span class="step__line"></span></div>
+            <h3 class="step__title">Перша зміна</h3>
+            <p class="step__text">Заселення, інструктаж з безпеки, спецодяг і вихід на об'єкт.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= GALLERY ================= -->
+    <section class="section section--gray" id="gallery">
+      <div class="container">
+        <div class="section__head js-reveal">
+          <div>
+            <p class="section__label">Наші об'єкти</p>
+            <h2 class="section__title">Де ви будете працювати</h2>
+          </div>
+          <p class="section__text">Житлові комплекси, склади й реконструкції у [МІСТА]. Справжні фото з об'єктів і житла.</p>
+        </div>
+
+        <!--
+          Щоб додати фото, замініть два внутрішні div на:
+          <img class="gallery__img" src="img/photo-1.jpg" alt="Опис фото" loading="lazy">
+        -->
+        <div class="gallery">
+          <figure class="gallery__item gallery__item--tall js-reveal">
+            <div class="gallery__bg stripes stripes--light"></div>
+            <div class="gallery__placeholder"><svg aria-hidden="true"><use href="#icon-camera"/></svg>Фото: бригада на об'єкті</div>
+          </figure>
+          <figure class="gallery__item js-reveal">
+            <div class="gallery__bg stripes stripes--light"></div>
+            <div class="gallery__placeholder"><svg aria-hidden="true"><use href="#icon-camera"/></svg>Фото: житло для працівників</div>
+          </figure>
+          <figure class="gallery__item js-reveal">
+            <div class="gallery__bg stripes stripes--light"></div>
+            <div class="gallery__placeholder"><svg aria-hidden="true"><use href="#icon-camera"/></svg>Фото: процес роботи</div>
+          </figure>
+          <figure class="gallery__item js-reveal">
+            <div class="gallery__bg stripes stripes--light"></div>
+            <div class="gallery__placeholder"><svg aria-hidden="true"><use href="#icon-camera"/></svg>Фото: готовий об'єкт</div>
+          </figure>
+          <figure class="gallery__item js-reveal">
+            <div class="gallery__bg stripes stripes--light"></div>
+            <div class="gallery__placeholder"><svg aria-hidden="true"><use href="#icon-camera"/></svg>Фото: команда</div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section__head section__head--center js-reveal">
+          <p class="section__label">Питання</p>
+          <h2 class="section__title">Часті питання</h2>
+        </div>
+
+        <div class="faq">
+          <details class="faq-item js-reveal">
+            <summary class="faq-item__question">Чи потрібен досвід роботи на будові?<span class="faq-item__icon"><svg aria-hidden="true"><use href="#icon-plus"/></svg></span></summary>
+            <p class="faq-item__answer">На вакансію різноробочого досвід не потрібен: усьому навчимо на місці. Для бетонників і арматурників досвід вітається.</p>
+          </details>
+          <details class="faq-item js-reveal">
+            <summary class="faq-item__question">Чи треба знати чеську мову?<span class="faq-item__icon"><svg aria-hidden="true"><use href="#icon-plus"/></svg></span></summary>
+            <p class="faq-item__answer">Ні. Координатор говорить українською, а бригадири звикли працювати з нашими хлопцями. Базові фрази підкажемо.</p>
+          </details>
+          <details class="faq-item js-reveal">
+            <summary class="faq-item__question">Які документи потрібні?<span class="faq-item__icon"><svg aria-hidden="true"><use href="#icon-plus"/></svg></span></summary>
+            <p class="faq-item__answer">Залежить від вашого громадянства та статусу. Напишіть нам, і ми підкажемо, що саме потрібно у вашому випадку.</p>
+          </details>
+          <details class="faq-item js-reveal">
+            <summary class="faq-item__question">Коли і як я отримаю зарплату?<span class="faq-item__icon"><svg aria-hidden="true"><use href="#icon-plus"/></svg></span></summary>
+            <p class="faq-item__answer">[УМОВИ ВИПЛАТ: як часто, на картку чи готівкою, коли перша виплата].</p>
+          </details>
+          <details class="faq-item js-reveal">
+            <summary class="faq-item__question">Чи можна приїхати з другом або бригадою?<span class="faq-item__icon"><svg aria-hidden="true"><use href="#icon-plus"/></svg></span></summary>
+            <p class="faq-item__answer">Так, беремо пари й цілі бригади. Вкажіть це в заявці, щоб ми підібрали об'єкт і житло для всіх.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= APPLY ================= -->
+    <section class="section" id="apply">
+      <div class="container apply">
+        <div class="apply__form-box js-reveal">
+          <p class="section__label">Заявка</p>
+          <h2 class="apply__title">Залиште заявку, ми передзвонимо</h2>
+          <p class="apply__text">Це безкоштовно і ні до чого не зобов'язує.</p>
+
+          <!-- Форма поки демонстраційна. Для реальної відправки вкажіть action (напр. Formspree) або підключіть Telegram-бота -->
+          <form class="form" id="apply-form" action="#" method="post" novalidate>
+            <label class="form__field">
+              Ім'я
+              <input class="form__input" type="text" name="name" placeholder="Як до вас звертатися" autocomplete="name" required>
+            </label>
+            <label class="form__field">
+              Телефон / Viber / Telegram
+              <input class="form__input" type="tel" name="phone" placeholder="+380 ..." autocomplete="tel" required>
+            </label>
+            <label class="form__field">
+              Вакансія
+              <select class="form__input" name="vacancy" id="vacancy-select">
+                <option>Різноробочий</option>
+                <option>Підсобник муляра</option>
+                <option>Бетонник / арматурник</option>
+                <option>Демонтажні роботи</option>
+                <option>Інше</option>
+              </select>
+            </label>
+            <label class="form__field">
+              Громадянство
+              <select class="form__input" name="country">
+                <option>Україна</option>
+                <option>Молдова</option>
+                <option>Інше</option>
+              </select>
+            </label>
+            <label class="form__field form__field--full">
+              Коментар
+              <textarea class="form__input form__input--textarea" name="message" rows="3" placeholder="Досвід, коли можете приїхати, чи їдете з бригадою"></textarea>
+            </label>
+            <label class="form__check">
+              <input class="form__checkbox" type="checkbox" name="agree" required>
+              Погоджуюсь на обробку персональних даних
+            </label>
+            <button class="button button--primary form__submit" type="submit">Надіслати заявку</button>
+          </form>
+
+          <div class="form__success" id="form-success" hidden>
+            <span class="form__success-icon"><svg aria-hidden="true"><use href="#icon-check"/></svg></span>
+            <div>
+              <p class="form__success-title">Дякуємо! Заявку отримано.</p>
+              <p class="form__success-text">Ми зв'яжемося з вами найближчим часом.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="contacts js-reveal">
+          <h3 class="contacts__title">Або напишіть напряму</h3>
+          <ul class="contacts__list">
+            <li>
+              <a class="contact-link" href="tel:+420000000000">
+                <span class="contact-link__icon"><svg aria-hidden="true"><use href="#icon-phone"/></svg></span>
+                <span><span class="contact-link__label">Телефон</span><span class="contact-link__value">+420 [ВАШ НОМЕР]</span></span>
+              </a>
+            </li>
+            <li>
+              <a class="contact-link" href="https://t.me/" target="_blank" rel="noopener">
+                <span class="contact-link__icon"><svg aria-hidden="true"><use href="#icon-send"/></svg></span>
+                <span><span class="contact-link__label">Telegram</span><span class="contact-link__value">@[ВАШ_НІК]</span></span>
+              </a>
+            </li>
+            <li>
+              <a class="contact-link" href="viber://chat?number=%2B420000000000">
+                <span class="contact-link__icon"><svg aria-hidden="true"><use href="#icon-chat"/></svg></span>
+                <span><span class="contact-link__label">Viber / WhatsApp</span><span class="contact-link__value">+420 [ВАШ НОМЕР]</span></span>
+              </a>
+            </li>
+            <li>
+              <a class="contact-link" href="mailto:info@example.com">
+                <span class="contact-link__icon"><svg aria-hidden="true"><use href="#icon-mail"/></svg></span>
+                <span><span class="contact-link__label">Email</span><span class="contact-link__value">[ВАШ EMAIL]</span></span>
+              </a>
+            </li>
+          </ul>
+          <div class="contacts__office">
+            <p class="contacts__office-title">Офіс</p>
+            <p>[АДРЕСА ОФІСУ], Чехія</p>
+            <p>Пн–Пт: [ГОДИНИ РОБОТИ]</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a class="logo footer__logo" href="#top">
+        <span class="logo__text">Stavba<span class="logo__accent">Pro</span></span>
+      </a>
+      <p class="footer__license">Ліцензія агентства праці № [НОМЕР ЛІЦЕНЗІЇ]</p>
+      <p class="footer__copy">© <span id="year">2026</span> StavbaPro. Усі права захищені.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
